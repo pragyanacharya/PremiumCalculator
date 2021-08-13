@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/PremiumCalculator.UI/obj
+/PremiumCalculator.API/Persistence/obj
+/PremiumCalculator.API/Functions/Properties
+/PremiumCalculator.API/Domain/obj
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.vs/PremiumCalculator/v16
+/.vs/PremiumCalculator/DesignTimeBuild
+/.vs/PremiumCalculator/config
+/PremiumCalculator.API/Application/obj
+/PremiumCalculator.UI/bin/Debug/netcoreapp3.1
