@@ -4,10 +4,17 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
     <AssemblyName>PremiumCalculator.UI.Calculator</AssemblyName>
+    <RootNamespace>PremiumCalculator.UI.Calculator</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.17" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+	  <PackageReference Include="bootstrap" Version="5.0.2" />
+	  <PackageReference Include="Bootstrap.Datepicker" Version="1.8.0.1" />
+	  <PackageReference Include="Moment.js" Version="2.29.1" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
+
+
 
 </Project>

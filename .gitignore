@@ -13,3 +13,8 @@
 /.vs/PremiumCalculator/config
 /PremiumCalculator.API/Application/obj
 /PremiumCalculator.UI/bin/Debug/netcoreapp3.1
+/PremiumCalculator.API/Application/bin/Debug/netcoreapp3.1
+/PremiumCalculator.API/Domain/bin/Debug/netcoreapp3.1
+/PremiumCalculator.API/Persistence/bin/Debug/netcoreapp3.1
+/PremiumCalculator.API/WebAPI/bin/Debug/netcoreapp3.1
+/PremiumCalculator.API/WebAPI/obj

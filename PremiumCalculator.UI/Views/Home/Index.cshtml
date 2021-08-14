@@ -1,0 +1,61 @@
+﻿@model PremiumCalculator.UI.Calculator.Models.ViewModel.PremiumViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row justify-content-md-center">
+    <div class="col-md-5">
+        @using (Html.BeginForm("Calculate", "Home",null, FormMethod.Post,true, new { @id = "Calculate", @name = "CalculateForm" }))
+        {
+        @Html.AntiForgeryToken()
+
+        <div class="card">
+            <div class="card-header" id="divMessage">
+                <div class="card-title">Premium Calculator</div>
+                @if (ViewBag.result != null)
+                {
+                    <span class="badge badge-success"> Premium is  $@ViewBag.result</span>
+                }
+                @if (ViewBag.error != null)
+                {
+                    <span class="badge badge-danger">@ViewBag.error</span>
+                }
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name)
+                    @Html.Label("", "*", new { id = "star", @class = "text" })
+                    @Html.TextBoxFor(m => m.Name, "", new { @class = "form-control txtOnly", @placeholder = "Name" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Age)
+                    @Html.TextBoxFor(m => m.Age, "", new { @class = "form-control", @placeholder = "Age", @readonly = "true" })
+                    @Html.ValidationMessageFor(m => m.Age, "", new { @class = "badge badge-danger" })
+
+                </div>
+                <div class="form-group date">
+                    @Html.LabelFor(m => m.DateOfBirth)
+                    @Html.Label("", "*", new { id = "star", @class = "text" })
+                    @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control", @placeholder = "DD/MM/YYYY"})
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Occupation)
+                    @Html.Label("", "*", new { id = "star", @class = "text-danger" })
+                    @Html.DropDownListFor(x => Model.FactorRating, new SelectList(Model.Occupation, "FactorValue", "OccupationName"), "--Select--", htmlAttributes: new { @class = "form-control", id = "Occupation" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.SumInsured)
+                    @Html.Label("", "*", new { id = "star", @class = "text" })
+                    @Html.TextBoxFor(m => m.SumInsured, new { @class = "form-control", @placeholder = "$" })
+                </div>
+                <div class="form-group mr-2">
+                    <input type="submit" name="submit" class="btn btn-primary float-right" value="Calculate" />
+                    <span> </span>
+                    <input type="reset" id="btnClear" class="btn btn-secondary" value="Reset" />
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
