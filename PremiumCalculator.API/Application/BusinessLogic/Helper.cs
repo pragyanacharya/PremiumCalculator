@@ -2,7 +2,7 @@
 
 namespace PremiumCalculator.API.Application.BusinessLogic
 {
-    public static class Calculator
+    public static class Helper
     {
         public static decimal Calculate(decimal sumInsured, decimal ratingFactor,int age)
         {

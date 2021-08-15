@@ -8,7 +8,7 @@ namespace PremiumCalculator.API.Application.Services
     {
         public PremiumResult GetPremium(PremiumModel premium)
         {
-            var premiumValue = Calculator.Calculate(premium.SumInsured, premium.FactorRating, premium.Age);
+            var premiumValue = BusinessLogic.Helper.Calculate(premium.SumInsured, premium.FactorRating, premium.Age);
 
             return new PremiumResult
             {
