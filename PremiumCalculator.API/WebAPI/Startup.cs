@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PremiumCalculator.API.Application.Interfaces;
 using PremiumCalculator.API.Application.Queries.GetOccupationList;
+using PremiumCalculator.API.Application.Queries.GetPremium;
 using PremiumCalculator.API.Application.Services;
 using PremiumCalculator.API.Repository.Queries.GetOccupations;
 using System;
@@ -28,8 +29,10 @@ namespace WebAPI
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<IOccupationService, OccupationService>();
+            services.AddScoped<IPremiumService, PremiumService>();
             services.AddMediatR(typeof(GetOccupationListQuery.Handler).Assembly);
             services.AddMediatR(typeof(GetOccupationsQuery.Handler).Assembly);
+            services.AddMediatR(typeof(GetPremiumQuery.Handler).Assembly);
             services.AddMediatR(Assembly.GetExecutingAssembly());
         }
 

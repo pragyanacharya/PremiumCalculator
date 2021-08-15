@@ -8,7 +8,7 @@
         });
 
     // Initialize form validation on the CalculateForm.
-    $("form[name='CalculateForm']").validate({
+    $("#Calculate").validate({
         // Specify validation rules
         rules: {
             // The key name on the left side is the name attribute
@@ -36,20 +36,15 @@
                 number: "Decimal Numbers Only"
             },
             DateOfBirth: "Please enter your Date Of Birth",
-            FactorRating: {
-                required: "Please select an option from the list",
-            }
-        },
-        // Make sure the form is submitted to the destination defined
-        // in the "action" attribute of the form when valid
-        submitHandler: function (form) {
-            form.submit();
+            FactorRating:"Please select an option from the list"
+           
         }
     });
 
-    $("#DateOfBirth").change(function () {
+    $("#DateOfBirth").change(function (e) {
         var today = new Date();
-        var birthDate = new Date($('#DateOfBirth').val());
+        var dateParts  = $(this).val().split("/");
+        var birthDate = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
         var age = today.getFullYear() - birthDate.getFullYear();
         var m = today.getMonth() - birthDate.getMonth();
         var ageValue = 0;
@@ -58,9 +53,10 @@
         if (age != 0) {
             if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
                 age--;
-                ageValue = age;
             }
+            ageValue = age;
         }
+
         return $('#Age').val(ageValue);
     });
 
@@ -75,4 +71,19 @@
             return false;
         }
     });
+
+    $("#btnClear").click(function (ev) {
+        ev.preventDefault();
+        $(this).closest('form').find("input:text , select").each(function (i, v) {
+            $(this).val("");
+        });
+        $("#result").hide();
+    });
+});
+
+$.validator.setDefaults({
+    submitHandler: function () {
+        form.submit();
+        return false;
+    }
 });

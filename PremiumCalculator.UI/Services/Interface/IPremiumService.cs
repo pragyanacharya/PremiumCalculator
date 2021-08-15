@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using PremiumCalculator.UI.Calculator.Models.ViewModel;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PremiumCalculator.UI.Calculator.Services.Interface
 {
     public interface IPremiumService
     {
-        //Task<PremiumResponse> GetPremium(Premiums premium);
-
+        Task<PremiumResult> GetPremium(PremiumViewModel premium, CancellationToken cancellationToken);
     }
 }

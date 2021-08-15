@@ -13,11 +13,8 @@ namespace PremiumCalculator.UI.Calculator.Services
     public class OccupationService: IOccupationService
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly IConfiguration config;
-        public string CalculatePremiumApiUrl { get; set; }
-        public OccupationService(IConfiguration config, IHttpClientFactory httpClientFactory)
+        public OccupationService(IHttpClientFactory httpClientFactory)
         {
-            this.config = config;
             _httpClientFactory = httpClientFactory ??
               throw new ArgumentNullException(nameof(httpClientFactory));
         }
@@ -35,7 +32,6 @@ namespace PremiumCalculator.UI.Calculator.Services
             var result = new List<OccupationFactor>();
             try
             {
-                var uri = config["OccupationApiUrl"];
                 var httpClient = _httpClientFactory.CreateClient("OccupationService");
                 var response = await httpClient.GetAsync($"api/Occupation");
                 if (response.IsSuccessStatusCode)

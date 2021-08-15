@@ -24,12 +24,18 @@ namespace PremiumCalculator.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             services.AddScoped<IOccupationService, OccupationService>();
+            services.AddScoped<IPremiumService, PremiumService>();
+
             services.AddHttpClient("OccupationService", config =>
             {
                 config.BaseAddress = new Uri(Configuration["Services:Occupation"]);
             });
-           
+            services.AddHttpClient("PremiumService", config =>
+            {
+                config.BaseAddress = new Uri(Configuration["Services:Premium"]);
+            });
             services.AddAutoMapper(typeof(Startup));
         }
 

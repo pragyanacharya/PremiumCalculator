@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace PremiumCalculator.UI.Calculator.Models.ViewModel
 {
@@ -15,6 +14,6 @@ namespace PremiumCalculator.UI.Calculator.Models.ViewModel
 
         public IEnumerable<OccupationFactor> Occupation { get; set; }
 
-        public int? SumInsured { get; set; }
+        public string SumInsured { get; set; }
     }
 }
