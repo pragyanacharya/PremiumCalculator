@@ -21,13 +21,6 @@ namespace Premiumcalculator.API.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]   
-        public ActionResult Get()
-        {
-            var result = string.Empty;
-            return Ok(result);
-        }
-
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] PremiumModel premiumModel, CancellationToken cancellationToken)
         {

@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using PremiumCalculator.UI.Calculator.Constants;
 using PremiumCalculator.UI.Calculator.Models;
 using PremiumCalculator.UI.Calculator.Models.ViewModel;
@@ -16,11 +15,9 @@ namespace PremiumCalculator.UI.Calculator.Services
     public class PremiumService: IPremiumService
     {
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly IConfiguration config;
         public string CalculatePremiumApiUrl { get; set; }
-        public PremiumService(IConfiguration config, IHttpClientFactory httpClientFactory)
+        public PremiumService(IHttpClientFactory httpClientFactory)
         {
-            this.config = config;
             _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
         }
 
@@ -51,7 +48,6 @@ namespace PremiumCalculator.UI.Calculator.Services
                 throw ex;
             }
             return result;
-
         }
     }
 }

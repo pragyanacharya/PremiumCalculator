@@ -3,9 +3,9 @@ using PremiumCalculator.API.Application.Queries.GetOccupationList.Models;
 
 namespace PremiumCalculator.API.Application
 {
-    public class AutoMapper : Profile
+    public class AutoMapperProfile : Profile
     {
-        public AutoMapper()
+        public AutoMapperProfile()
         {
             CreateMap<OccupationFactor, Repository.Queries.GetOccupations.Models.OccupationFactor>().ReverseMap();
         }

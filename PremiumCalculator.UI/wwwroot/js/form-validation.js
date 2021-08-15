@@ -2,7 +2,7 @@
     $("#DateOfBirth").datepicker({
         autoclose:true,
         format: 'dd/mm/yyyy',
-        endDate: new Date(),
+        endDate: '-1y -0m',
         startDate: '-100y -0m'
         });
 

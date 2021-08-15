@@ -20,3 +20,7 @@
 /PremiumCalculator.API/WebAPI/obj
 /PremiumCalculator.UI.Tests/bin/Debug/netcoreapp3.1
 /PremiumCalculator.UI.Tests/obj
+/Application.Tests/bin/Debug/netcoreapp3.1
+/Application.Tests/obj
+/WebAPI.Tests/bin/Debug/netcoreapp3.1
+/WebAPI.Tests/obj
