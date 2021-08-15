@@ -24,3 +24,5 @@
 /Application.Tests/obj
 /WebAPI.Tests/bin/Debug/netcoreapp3.1
 /WebAPI.Tests/obj
+/RepositoryTests/bin/Debug/netcoreapp3.1
+/RepositoryTests/obj
