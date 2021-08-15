@@ -13,12 +13,10 @@ namespace PremiumCalculator.UI.Calculator.Controllers
     {
         private readonly IOccupationService _occupationService;
         private readonly IPremiumService _premiumService;
-        private readonly IMapper _mapper;
 
-        public HomeController(IOccupationService occupationService, IMapper mapper, IPremiumService premiumService)
+        public HomeController(IOccupationService occupationService, IPremiumService premiumService)
         {
             _occupationService = occupationService;
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _premiumService = premiumService;
         }
 

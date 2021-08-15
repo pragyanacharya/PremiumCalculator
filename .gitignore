@@ -18,3 +18,5 @@
 /PremiumCalculator.API/Persistence/bin/Debug/netcoreapp3.1
 /PremiumCalculator.API/WebAPI/bin/Debug/netcoreapp3.1
 /PremiumCalculator.API/WebAPI/obj
+/PremiumCalculator.UI.Tests/bin/Debug/netcoreapp3.1
+/PremiumCalculator.UI.Tests/obj

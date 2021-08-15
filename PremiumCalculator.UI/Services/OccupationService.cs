@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using PremiumCalculator.UI.Calculator.Constants;
 using PremiumCalculator.UI.Calculator.Models;
 using PremiumCalculator.UI.Calculator.Models.ViewModel;
 using PremiumCalculator.UI.Calculator.Services.Interface;
@@ -32,8 +32,8 @@ namespace PremiumCalculator.UI.Calculator.Services
             var result = new List<OccupationFactor>();
             try
             {
-                var httpClient = _httpClientFactory.CreateClient("OccupationService");
-                var response = await httpClient.GetAsync($"api/Occupation");
+                var httpClient = _httpClientFactory.CreateClient(UtilityConstant.OccupationServiceName);
+                var response = await httpClient.GetAsync(UtilityConstant.OccupationServicePath);
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsByteArrayAsync();

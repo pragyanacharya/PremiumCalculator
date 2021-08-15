@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using PremiumCalculator.UI.Calculator.Constants;
 using PremiumCalculator.UI.Calculator.Models;
 using PremiumCalculator.UI.Calculator.Models.ViewModel;
 using PremiumCalculator.UI.Calculator.Services.Interface;
 using System;
-using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -30,7 +30,7 @@ namespace PremiumCalculator.UI.Calculator.Services
 
             try
             {
-                var httpClient = _httpClientFactory.CreateClient("PremiumService");
+                var httpClient = _httpClientFactory.CreateClient(UtilityConstant.PremiumServiceName);
                 var premiumModel = new PremiumModel
                 {
                     Age = Convert.ToInt32(premium.Age),
@@ -38,7 +38,7 @@ namespace PremiumCalculator.UI.Calculator.Services
                     SumInsured = Convert.ToDecimal(premium.SumInsured)
                 };
                 var stringContent = new StringContent(JsonConvert.SerializeObject(premiumModel), Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync($"api/Premium", stringContent);
+                var response = await httpClient.PostAsync(UtilityConstant.PremiumServicePath, stringContent);
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsByteArrayAsync();
