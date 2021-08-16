@@ -1,9 +1,6 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using PremiumCalculator.UI.Calculator.Constants;
+﻿using Microsoft.AspNetCore.Mvc;
 using PremiumCalculator.UI.Calculator.Models.ViewModel;
 using PremiumCalculator.UI.Calculator.Services.Interface;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -29,16 +26,17 @@ namespace PremiumCalculator.UI.Calculator.Controllers
         [HttpPost]
         public async Task<IActionResult> Calculate(PremiumViewModel premiumViewModel, CancellationToken cancellationToken)
         {
-            if (ModelState.IsValid)
-            {
-                var response = await _premiumService.GetPremium(premiumViewModel, cancellationToken);
-                ViewBag.result = response.PremiumValue;
-            }
-            else
-            {
-                ViewBag.error = ErrorConstant.InvalidInput;
-            }
+            var response = await _premiumService.GetPremium(premiumViewModel, cancellationToken);
+            ViewBag.result = response.PremiumValue;
             return View("Index", await _occupationService.GetOccupationList());
+        }
+
+        [HttpPost]
+        public async Task<PartialViewResult> IndexPartial(PremiumViewModel premiumViewModel, CancellationToken cancellationToken)
+        {
+            var response = await _premiumService.GetPremium(premiumViewModel, cancellationToken);
+            ViewBag.result = response.PremiumValue;
+            return PartialView("_Result");
         }
     }
 }

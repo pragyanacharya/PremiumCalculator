@@ -1,10 +1,10 @@
 ﻿$(function () {
     $("#DateOfBirth").datepicker({
-        autoclose:true,
+        autoclose: true,
         format: 'dd/mm/yyyy',
         endDate: '-1y -0m',
         startDate: '-100y -0m'
-        });
+    });
 
     // Initialize form validation on the CalculateForm.
     $("#Calculate").validate({
@@ -37,8 +37,8 @@
                 number: "Decimal Numbers Only"
             },
             DateOfBirth: "Please enter your Date Of Birth",
-            FactorRating:"Please select an occupation"
-           
+            FactorRating: "Please select an occupation"
+
         },
         highlight: function (element, errorClass) {
             $(element).removeClass(errorClass);
@@ -47,7 +47,7 @@
 
     $("#DateOfBirth").change(function (e) {
         var today = new Date();
-        var dateParts  = $(this).val().split("/");
+        var dateParts = $(this).val().split("/");
         var birthDate = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
         $("#DateOfBirth-error").hide();
         var age = today.getFullYear() - birthDate.getFullYear();
@@ -83,6 +83,23 @@
             $(this).val("");
         });
         $("#result").hide();
+    });
+
+    $("#Occupation").on("change", function () {
+        if ($('#Calculate').valid()) {
+            $.ajax({
+                url: '/home/indexpartial',
+                type: 'POST',
+                data: $('#Calculate').serialize(),
+                contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                success: function (data) {
+                    $("#divResult").html(data);
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        }
     });
 });
 

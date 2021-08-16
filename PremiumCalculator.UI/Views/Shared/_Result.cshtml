@@ -1,0 +1,8 @@
+﻿@if (ViewBag.result != null)
+{
+    <span class="badge badge-success" id="result"> Premium Value :  $@ViewBag.result</span>
+}
+@if (ViewBag.error != null)
+{
+    <span class="badge badge-danger">@ViewBag.error</span>
+}

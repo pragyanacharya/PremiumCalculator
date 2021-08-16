@@ -27,7 +27,8 @@
                     </div>
                     <div class="form-group">
                         @Html.Label("", "Occupation *", new { id = "star", @class = "text" })
-                        @Html.DropDownListFor(x => Model.FactorRating, new SelectList(Model.Occupation, "FactorValue", "OccupationName"), "--Select--", htmlAttributes: new { @class = "form-control", id = "Occupation" })
+                        @Html.DropDownListFor(x => Model.FactorRating, new SelectList(Model.Occupation, "FactorValue", "OccupationName"),
+                       "--Select--", htmlAttributes: new { @class = "form-control", id = "Occupation"})
                     </div>
                     <div class="form-group">
                         @Html.Label("", "Death – Sum Insured *", new { id = "star", @class = "text" })
@@ -38,15 +39,8 @@
                         <span> </span>
                         <input type="reset" name="reset" id="btnClear" class="btn btn-outline-primary float-right" value="Reset" />
                     </div>
-                    <div class="form-group mr-2">
-                        @if (ViewBag.result != null)
-                        {
-                            <span class="badge badge-success" id="result"> Premium Value :  $@ViewBag.result</span>
-                        }
-                        @if (ViewBag.error != null)
-                        {
-                            <span class="badge badge-danger">@ViewBag.error</span>
-                        }
+                    <div class="form-group mr-2" id="divResult">
+                        <partial name="_Result" >
                     </div>
                 </div>
             </div>
