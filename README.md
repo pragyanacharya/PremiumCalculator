@@ -2,10 +2,12 @@
 This project calculates premium based on different parameters. 
 
 Solution Structure
+
 The solution is divided into 2 parts as below
 1. UI
 2. API
 
+Overview
 1. UI- This is a .Net Core 3.1 web app project. The view is developed using Razor pages with all client validations using jQuery. The corresponding test project is placed within the same folder
 2. API- This is a .Net Core 3.1 Web API project. The API follows a CQRS architecture pattern. This is divided into 4 layers as below.
   2.1 Web Api Layer-This is the outer modt layer consisting of controllers which receives the request.
