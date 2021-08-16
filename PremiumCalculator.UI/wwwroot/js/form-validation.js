@@ -1,11 +1,6 @@
 ﻿$(function () {
+
     $('#Calculate').attr('autocomplete', 'off');
-    $("#DateOfBirth").datepicker({
-        autoclose: true,
-        format: 'dd/mm/yyyy',
-        endDate: '-1y -0m',
-        startDate: '-100y -0m'
-    });
 
     // Initialize form validation on the CalculateForm.
     $("#Calculate").validate({
@@ -44,6 +39,13 @@
         highlight: function (element, errorClass) {
             $(element).removeClass(errorClass);
         }
+    });
+
+    $("#DateOfBirth").datepicker({
+        autoclose: true,
+        format: 'dd/mm/yyyy',
+        endDate: '-1y -0m',
+        startDate: '-100y -0m'
     });
 
     $("#DateOfBirth").on("keydown", function (e) {
