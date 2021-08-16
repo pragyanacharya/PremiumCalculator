@@ -1,4 +1,5 @@
 ﻿$(function () {
+    $('#Calculate').attr('autocomplete', 'off');
     $("#DateOfBirth").datepicker({
         autoclose: true,
         format: 'dd/mm/yyyy',
@@ -43,6 +44,10 @@
         highlight: function (element, errorClass) {
             $(element).removeClass(errorClass);
         }
+    });
+
+    $("#DateOfBirth").on("keydown", function (e) {
+        e.preventDefault();
     });
 
     $("#DateOfBirth").change(function (e) {
