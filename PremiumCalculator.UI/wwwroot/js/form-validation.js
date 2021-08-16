@@ -14,7 +14,8 @@
             Name: "required",
             SumInsured: {
                 required: true,
-                number: true
+                number: true,
+                min:100
             },
             DateOfBirth: "required",
             FactorRating: {
@@ -30,7 +31,8 @@
             Name: "Please enter your Name",
             SumInsured: {
                 required: "Enter Amount",
-                number: "Decimal Numbers Only"
+                number: "Decimal Numbers Only",
+                min:"Minimum value should be $100"
             },
             DateOfBirth: "Please enter your Date Of Birth",
             FactorRating: "Please select an occupation"
