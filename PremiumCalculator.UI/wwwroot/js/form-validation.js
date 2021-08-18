@@ -15,7 +15,8 @@
             SumInsured: {
                 required: true,
                 number: true,
-                min:100
+                min: 100,
+                dollarsscents: true
             },
             DateOfBirth: "required",
             FactorRating: {
@@ -42,6 +43,11 @@
             $(element).removeClass(errorClass);
         }
     });
+
+    $.validator.addMethod("dollarsscents", function (value, element) {
+        return this.optional(element) || /^\d{0,4}(\.\d{0,2})?$/i.test(value);
+    }, "Enter only 2 decimal places");
+
 
     $("#DateOfBirth").datepicker({
         autoclose: true,
